@@ -1,0 +1,36 @@
+<h1>VACUUMS</h1>
+
+<table>
+  <tr>
+    <th>VACUUM ID</th>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Create date</th>
+    <th>Remove</th>
+  </tr>
+
+  <tr *ngFor="let vacuum of vacuums">
+    <td style="width: 100px">{{vacuum.id}}</td>
+    <td style="width: 100px">{{vacuum.name}}</td>
+    <td style="width: 100px">{{vacuum.status}}</td>
+    <td style="width: 100px">{{formatDate(vacuum.dateCreated)}}</td>
+    <td><button type="button" class="btn btn-danger" (click)="removeVacuum(vacuum)">delete</button></td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Filter by name, date and status</h2>
+<div>
+  <form>
+    Name: <input type="text" name="name" [(ngModel)]="name"><br>
+    Date from: <input type="text" name="dateFrom" [(ngModel)]="dateFrom"><br>
+    Date to:&nbsp; <input type="email" name="email" [(ngModel)]="dateTo"><br><br>
+    STATUS LIST:<br>
+    STOPPED <input type="checkbox" name="create" [(ngModel)]="stopped"><br>
+    RUNNING&nbsp;<input type="checkbox" name="read" [(ngModel)]="running"><br>
+    DISCHARGING <input type="checkbox" name="update" [(ngModel)]="discharging"><br>
+
+    <button type="submit" name="submit" (click)="filteredSearch()">SEARCH</button>
+  </form>
+</div>

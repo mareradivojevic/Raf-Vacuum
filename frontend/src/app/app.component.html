@@ -1,0 +1,25 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a [routerLink]="'/'" class="nav-link active" aria-current="page">Login</a>
+          <a [routerLink]="'/users'" class="nav-link active" aria-current="page">Users</a>
+          <a [routerLink]="'/create'" class="nav-link active" aria-current="page">Create</a>
+          <a [routerLink]="'/edit'" class="nav-link active" aria-current="page">Edit</a>
+          <a [routerLink]="'/search'" class="nav-link active" aria-current="page">Search</a>
+          <a [routerLink]="'/add'" class="nav-link active" aria-current="page">Add</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container pt-3">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+

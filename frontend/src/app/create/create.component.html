@@ -1,0 +1,35 @@
+<h1>CREATE USER</h1>
+
+<div>
+    <form [formGroup]="userForm" (submit)="createUser()">
+      Name: <input type="text" name="name" [formControlName]="'name'">
+      <div class="error-message text-danger" *ngIf="userForm.get('name')?.errors?.['required']"> Name is required! </div><br>
+      Surname: <input type="text" name="surname" [formControlName]="'surname'">
+      <div class="error-message text-danger" *ngIf="userForm.get('surname')?.errors?.['required']"> Surname is required! </div><br>
+      Email: <input type="email" name="email" [formControlName]="'email'">
+      <div class="error-message text-danger" *ngIf="userForm.get('email')?.errors?.['required']"> Email is required! </div><br>
+      Password: <input type="password" name="password" [formControlName]="'password'">
+      <div class="error-message text-danger" *ngIf="userForm.get('password')?.errors?.['required']"> Password is required! </div><br><br>
+
+      <label>User permissions: </label><br>
+      CREATE <input type="checkbox" name="create" (click)="flipCreate()"><br>
+      READ&nbsp;&nbsp;<input type="checkbox" name="read" (click)="flipRead()"><br>
+      UPDATE <input type="checkbox" name="update" (click)="flipUpdate()"><br>
+      DELETE <input type="checkbox" name="delete" (click)="flipDelete()"><br><br>
+      <label>Vacuum permissions: </label><br>
+      ADD &nbsp;<input type="checkbox" name="add" (click)="flipAdd()"><br>
+      REMOVE <input type="checkbox" name="remove" (click)="flipRemove()"><br>
+      SEARCH <input type="checkbox" name="search" (click)="flipSearch()"><br>
+      START <input type="checkbox" name="start" (click)="flipStart()"><br>
+      STOP <input type="checkbox" name="stop" (click)="flipStop()"><br>
+      DISCHARGE <input type="checkbox" name="discharge" (click)="flipDischarge()"><br>
+
+      <button [disabled]="!userForm.valid" type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+
+
+<!--Name: <input type="text" name="name" [(ngModel)]="user.name" required>-->
+<!--Surname: <input type="text" name="name" [(ngModel)]="user.surname" required>-->
+<!--Email: <input type="email" name="email" [(ngModel)]="user.email" required>-->
+<!--Password: <input type="password" name="password" [(ngModel)]="user.password" required>-->

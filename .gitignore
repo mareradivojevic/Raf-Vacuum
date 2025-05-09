@@ -1,0 +1,15 @@
+# Angular
+frontend/node_modules/
+frontend/dist/
+
+# Spring Boot
+backend/target/
+
+# IDEs
+.idea/
+.vscode/
+
+# Others
+*.log
+.env
+.DS_Store

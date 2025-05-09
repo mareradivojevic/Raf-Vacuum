@@ -1,0 +1,36 @@
+<h1>USERS</h1>
+
+<table>
+  <tr>
+    <th>USER ID</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Email</th>
+    <th>Create</th>
+    <th>Read</th>
+    <th>Update</th>
+    <th>Delete</th>
+    <th>Remove</th>
+  </tr>
+
+  <tr *ngFor="let user of users">
+    <td style="width: 100px">{{user.id}}</td>
+    <td style="width: 100px">{{user.name}}</td>
+    <td style="width: 100px">{{user.surname}}</td>
+    <td style="width: 150px">
+      <div *ngIf="hasPermission(getCurrentUser(), 'can_update_users'); else elseBlock">
+        <a [routerLink]="'/edit'" (click)="setEditUser(user)">{{user.email}}</a>
+      </div>
+      <ng-template #elseBlock>{{user.email}}</ng-template>
+    </td>
+    <td style="width: 100px">{{hasPermission(user, "can_create_users") | permission}}</td>
+    <td style="width: 100px">{{hasPermission(user, "can_read_users") | permission}}</td>
+    <td style="width: 100px">{{hasPermission(user, "can_update_users") | permission}}</td>
+    <td style="width: 100px">{{hasPermission(user, "can_delete_users") | permission}}</td>
+    <td><button type="button" class="btn btn-danger" (click)="deleteUser(user)">delete</button></td>
+  </tr>
+
+</table>
+
+
+

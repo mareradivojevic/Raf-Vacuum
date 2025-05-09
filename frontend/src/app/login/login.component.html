@@ -1,0 +1,22 @@
+<h1>WELCOME</h1>
+<p>This is the login page, enter your username (email) and password below:</p>
+<div>
+  <form (submit)="login()">
+    <div *ngIf="this.getLoginError()">
+      <label style="color: crimson"><b>Error, please try again</b></label>
+    </div>
+    <label>username:</label><br>
+    <input type="text" name="user" [(ngModel)]=loginRequest.username><br>
+    <label>password:</label><br>
+    <input type="password" name="password" [(ngModel)]="loginRequest.password" ><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<hr>
+
+<div *ngIf="loginResponse.jwt">
+  <label>User <b>{{getLoggedInUser()}}</b> logged in</label><br>
+  <input type="button" value="Logout" (click)="logout()">
+</div>
+

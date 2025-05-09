@@ -1,0 +1,9 @@
+<h1>ADD VACUUM</h1>
+
+<div>
+  <form [formGroup]="vacuumForm" (submit)="createVacuum()">
+    Name: <input type="text" name="name" [formControlName]="'name'">
+    <div class="error-message text-danger" *ngIf="vacuumForm.get('name')?.errors?.['required']"> Name is required! </div><br>
+    <button [disabled]="!vacuumForm.valid" type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>

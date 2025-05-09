@@ -1,0 +1,21 @@
+<h1>EDIT USER</h1>
+
+<div *ngIf="user.id!=0; else elseBlock">
+  <form>
+    <label>USER ID: {{user.id}} </label><br>
+    Name: <input type="text" name="name" [(ngModel)]="user.name"> {{user.name}}<br>
+    Surname: <input type="text" name="surname" [(ngModel)]="user.surname"> {{user.surname}}<br>
+    Email: <input type="email" name="email" [(ngModel)]="user.email"> {{user.email}}<br><br>
+    <label>Permissions: </label><br>
+    CREATE <input type="checkbox" name="create" [(ngModel)]="create"><br>
+    READ&nbsp;&nbsp;<input type="checkbox" name="read" [(ngModel)]="read"><br>
+    UPDATE <input type="checkbox" name="update" [(ngModel)]="update"><br>
+    DELETE <input type="checkbox" name="delete" [(ngModel)]="delete"><br>
+    ADD &nbsp;<input type="checkbox" name="add" [(ngModel)]="add"><br>
+    SEARCH <input type="checkbox" name="delete" [(ngModel)]="search"><br>
+    REMOVE <input type="checkbox" name="delete" [(ngModel)]="remove"><br>
+
+    <button type="submit" name="submit" (click)="editUser()">Edit</button>
+  </form>
+</div>
+<ng-template #elseBlock>No user selected for editing.</ng-template>
